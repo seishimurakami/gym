@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>LIFETIME FITNESS — 岡本真のボディメイクジム</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffff;
+  --cream: #faf8f5;
+  --light: #f3efe9;
+  --warm: #ede8e0;
+  --border: #e0d8ce;
+  --text: #2c2520;
+  --muted: #9a8f85;
+  --accent: #b07d62;
+  --accent-light: #d4a98a;
+  --accent-dark: #8a5e45;
+  --green: #7a9e7e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 430px;
+  z-index: 100;
+  padding: 18px 28px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: var(--text);
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/hero_belt_shorts.jpg');
+  background-size: cover;
+  background-position: center top;
+  transform: scale(1.06);
+  animation: zoomOut 10s ease-out forwards;
+}
+
+.hero-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(250,248,245,0.55) 0%, rgba(250,248,245,0.1) 50%, rgba(250,248,245,0.85) 100%);
+}
+
+@keyframes zoomOut {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.0); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 32px 56px;
+}
+
+.hero-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: var(--accent);
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.3s;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.5s;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 13px;
+  color: #5a4e47;
+  line-height: 1.9;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.7s;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.9s;
+}
+
+.btn-main {
+  display: block;
+  text-align: center;
+  background: var(--accent);
+  color: #fff;
+  padding: 16px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-decoration: none;
+  transition: background 0.25s;
+}
+.btn-main:hover { background: var(--accent-dark); }
+
+.btn-sub {
+  display: block;
+  text-align: center;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 14px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s;
+}
+.btn-sub:hover { border-color: var(--accent); background: var(--cream); }
+
+/* OPEN RIBBON */
+.open-ribbon {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* STATS */
+.stats-row {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--cream);
+}
+.stat-item {
+  flex: 1;
+  padding: 24px 10px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* SECTION BASE */
+.section {
+  padding: 64px 32px;
+}
+.section-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+.section-body {
+  font-size: 14px;
+  color: #5a4e47;
+  line-height: 1.95;
+}
+
+/* CONCEPT SECTION */
+.concept-section {
+  background: var(--cream);
+  padding: 64px 32px;
+}
+
+.concept-cards {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.concept-card {
+  background: var(--white);
+  padding: 28px 24px;
+  display: flex;
+  gap: 20px;
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.concept-card:hover {
+  border-left-color: var(--accent);
+  box-shadow: 4px 0 20px rgba(176,125,98,0.08);
+}
+.concept-icon-wrap {
+  width: 44px; height: 44px;
+  background: var(--light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.concept-card-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.concept-card-body {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* TARGET */
+.target-section {
+  padding: 64px 32px;
+}
+.target-items {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.target-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--cream);
+  border-radius: 2px;
+}
+.target-check {
+  width: 32px; height: 32px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.target-text { font-size: 14px; color: var(--text); line-height: 1.7; }
+
+/* TRAINER PHOTO */
+.trainer-img-wrap {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+.trainer-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(1.0) saturate(0.85);
+}
+.trainer-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 55%, rgba(250,248,245,1) 100%);
+}
+
+.trainer-caption {
+  background: var(--cream);
+  padding: 0 32px 48px;
+}
+
+.trainer-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--accent-light);
+  padding: 5px 14px;
+  margin-bottom: 16px;
+}
+.trainer-tag span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.trainer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.trainer-name-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.trainer-body {
+  font-size: 14px;
+  color: #5a4e47;
+  line-height: 1.95;
+  margin-bottom: 24px;
+}
+
+.career-timeline {
+  border-top: 1px solid var(--border);
+}
+.career-row {
+  display: flex;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.career-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: var(--accent);
+  min-width: 44px;
+}
+.career-desc { color: #6b5e57; }
+
+/* FIGHT PHOTO FULL WIDTH */
+.photo-full {
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+.photo-full img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: saturate(0.7) brightness(0.9);
+  transition: transform 0.8s ease;
+}
+.photo-full:hover img { transform: scale(1.03); }
+.photo-full-label {
+  position: absolute;
+  bottom: 20px; left: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.7);
+  font-style: italic;
+}
+
+/* PROGRAM GRID */
+.program-section {
+  background: var(--cream);
+  padding: 64px 32px;
+}
+.program-cards {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.program-card {
+  background: var(--white);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.program-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  color: var(--border);
+  position: absolute;
+  top: 12px; right: 20px;
+  line-height: 1;
+  font-style: italic;
+}
+.program-tag {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-family: 'Cormorant Garamond', serif;
+}
+.program-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.program-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.program-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+.program-pill {
+  font-size: 11px;
+  padding: 3px 12px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 20px;
+}
+
+/* TRAINING PHOTO */
+.photo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+}
+.photo-pair-item {
+  overflow: hidden;
+  height: 200px;
+}
+.photo-pair-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8);
+  transition: transform 0.6s ease;
+}
+.photo-pair-item:hover img { transform: scale(1.06); }
+.photo-text-block {
+  background: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 20px;
+  text-align: center;
+}
+.photo-text-block .big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  color: #fff;
+  font-style: italic;
+  line-height: 1;
+}
+.photo-text-block .small {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* PLAN */
+.plan-section {
+  padding: 64px 32px;
+}
+.plan-cards {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.plan-card {
+  background: var(--cream);
+  padding: 28px;
+  position: relative;
+}
+.plan-card.featured {
+  background: var(--white);
+  border: 1px solid var(--accent-light);
+}
+.plan-badge {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 2px;
+  padding: 4px 10px;
+  font-family: 'Cormorant Garamond', serif;
+}
+.plan-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--accent);
+  font-family: 'Cormorant Garamond', serif;
+  margin-bottom: 6px;
+}
+.plan-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.plan-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+}
+.plan-price small { font-size: 16px; color: var(--muted); }
+.plan-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+.plan-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.plan-feature {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.plan-feature::before {
+  content: '';
+  width: 16px; height: 1px;
+  background: var(--accent-light);
+  flex-shrink: 0;
+}
+
+/* VOICE / TESTIMONIALS */
+.voice-section {
+  background: var(--light);
+  padding: 64px 32px;
+}
+.voice-cards {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.voice-card {
+  background: var(--white);
+  padding: 24px;
+  position: relative;
+}
+.voice-card::before {
+  content: '"';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  color: var(--border);
+  position: absolute;
+  top: 10px; left: 16px;
+  line-height: 1;
+}
+.voice-text {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.9;
+  padding-top: 24px;
+  padding-left: 8px;
+}
+.voice-from {
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* OPEN SECTION */
+.open-section {
+  background: var(--text);
+  padding: 64px 32px;
+  text-align: center;
+}
+.open-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--accent-light);
+  margin-bottom: 12px;
+}
+.open-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.open-title em { font-style: italic; color: var(--accent-light); }
+.open-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+.open-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.9;
+  margin-bottom: 36px;
+}
+.open-cta {
+  display: inline-block;
+  border: 1px solid var(--accent-light);
+  color: var(--accent-light);
+  padding: 14px 40px;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+  font-family: 'Cormorant Garamond', serif;
+}
+.open-cta:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ACCESS */
+.access-section {
+  padding: 64px 32px;
+}
+.access-items {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.access-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--cream);
+}
+.access-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.access-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  font-family: 'Cormorant Garamond', serif;
+  margin-bottom: 4px;
+}
+.access-value {
+  font-size: 14px;
+  color: var(--text);
+}
+.access-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.free-trial-btn {
+  display: block;
+  text-align: center;
+  background: var(--accent);
+  color: #fff;
+  padding: 18px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-decoration: none;
+  margin-top: 28px;
+  transition: background 0.25s;
+}
+.free-trial-btn:hover { background: var(--accent-dark); }
+
+/* FOOTER */
+footer {
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  padding: 40px 32px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+.footer-links a {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.footer-copy {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Divider ornament */
+.ornament {
+  text-align: center;
+  padding: 8px 0;
+  color: var(--border);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  letter-spacing: 6px;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">LIFETIME <span>FITNESS</span></div>
+  <ul class="nav-links">
+    <li><a href="#concept">CONCEPT</a></li>
+    <li><a href="#trainer">TRAINER</a></li>
+    <li><a href="#plan">PLAN</a></li>
+    <li><a href="#access">ACCESS</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">LIFETIME FITNESS GYM</div>
+    <h1 class="hero-title">
+      何歳からでも、<br>
+      <em>美しく</em><br>
+      強くなれる。
+    </h1>
+    <p class="hero-sub">
+      元日本チャンピオンが教える、<br>
+      40代からのボディメイク。<br>
+      人生を長く、自分らしく楽しむために。
+    </p>
+    <div class="hero-buttons">
+      <a href="#access" class="btn-main">無料体験を予約する</a>
+      <a href="#concept" class="btn-sub">ジムのコンセプトを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN RIBBON -->
+<div class="open-ribbon">2025.6.1 GRAND OPEN — 中山駅 徒歩3分</div>
+
+<!-- STATS -->
+<div class="stats-row reveal">
+  <div class="stat-item">
+    <div class="stat-num">40<small style="font-size:14px;color:var(--muted);">代〜</small></div>
+    <div class="stat-label">主な<br>ターゲット</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">初</div>
+    <div class="stat-label">心者でも<br>安心</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">日本</div>
+    <div class="stat-label">チャンピオン<br>直接指導</div>
+  </div>
+</div>
+
+<!-- CONCEPT -->
+<section id="concept" class="section reveal">
+  <div class="section-eyebrow">CONCEPT</div>
+  <h2 class="section-title">
+    <em>Life</em>を、<br>
+    ずっと楽しむ。
+  </h2>
+  <p class="section-body">
+    「フィットネスは若い人のもの」——そんな思い込みを、手放してください。40代こそ、体づくりの本当のスタートライン。人生後半を自信と活力をもって生きるために、ここLIFETIME FITNESSはあります。
+  </p>
+</section>
+
+<div class="concept-section" id="concept-cards">
+  <div class="concept-cards">
+    <div class="concept-card reveal">
+      <div class="concept-icon-wrap">🌿</div>
+      <div>
+        <div class="concept-card-title">初心者でも入りやすい</div>
+        <div class="concept-card-body">「ジムが怖い」はここでは関係ありません。丁寧なカウンセリングから始まり、あなたのペースで無理なく続けられる環境をご用意。</div>
+      </div>
+    </div>
+    <div class="concept-card reveal">
+      <div class="concept-icon-wrap">♾️</div>
+      <div>
+        <div class="concept-card-title">ライフタイム・フィットネス</div>
+        <div class="concept-card-body">短期間で結果を出すダイエットではなく、10年・20年続けられる健康的な習慣を一緒につくります。毎日が楽しくなる身体へ。</div>
+      </div>
+    </div>
+    <div class="concept-card reveal">
+      <div class="concept-icon-wrap">🏆</div>
+      <div>
+        <div class="concept-card-title">チャンピオンの知識で最短ルート</div>
+        <div class="concept-card-body">元日本チャンピオン・川崎真琴が筋肉を知り尽くした効率的なボディメイクを指導。遠回りせず、正しく美しく変わる。</div>
+      </div>
+    </div>
+    <div class="concept-card reveal">
+      <div class="concept-icon-wrap">💬</div>
+      <div>
+        <div class="concept-card-title">少人数で、アットホームに</div>
+        <div class="concept-card-body">大手チェーンのような混雑はありません。顔と名前を覚えてもらえる、安心できる居場所としてのジムです。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TARGET -->
+<section id="target" class="target-section">
+  <div class="section-eyebrow reveal">FOR YOU</div>
+  <h2 class="section-title reveal">こんな方に<br><em>ぴったり</em>です</h2>
+  <div class="target-items">
+    <div class="target-item reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">40代・50代で体型の変化が気になってきた</div>
+    </div>
+    <div class="target-item reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">ジムに通ったことがなく、何から始めればいいかわからない</div>
+    </div>
+    <div class="target-item reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">ただ痩せるだけでなく、引き締まった身体になりたい</div>
+    </div>
+    <div class="target-item reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">続けられるフィットネス習慣を身につけたい</div>
+    </div>
+    <div class="target-item reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">健康寿命を延ばして、いつまでも元気でいたい</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINER PHOTO -->
+<div class="trainer-img-wrap">
+  <img src="images/trainer_belt_robe.jpg" alt="岡本真 / 川崎真琴">
+</div>
+<div class="trainer-caption" id="trainer">
+  <div class="reveal">
+    <div class="trainer-tag"><span>第40代 日本スーパーウェルター級王者</span></div>
+    <div class="trainer-name">岡本 真</div>
+    <div class="trainer-name-en">Ring name : 川崎 真琴</div>
+    <p class="trainer-body">
+      広島県尾道市出身、1984年生まれ。リングネーム・川崎真琴として活躍したプロボクサー。2022年4月、37歳で日本スーパーウェルター級王座を獲得（第40代王者）。10年間の現役生活で磨き上げた筋肉と身体の知識を、すべてのメンバーに伝えるためにジムを開業。「本物の知識があれば、何歳からでも身体は変えられる」を信念とする。
+    </p>
+  </div>
+  <div class="career-timeline reveal">
+    <div class="career-row">
+      <div class="career-year">1984</div>
+      <div class="career-desc">広島県尾道市生まれ</div>
+    </div>
+    <div class="career-row">
+      <div class="career-year">2012</div>
+      <div class="career-desc">プロボクシングデビュー</div>
+    </div>
+    <div class="career-row">
+      <div class="career-year">2017</div>
+      <div class="career-desc">日本ウェルター級暫定王座決定戦出場</div>
+    </div>
+    <div class="career-row">
+      <div class="career-year">2022</div>
+      <div class="career-desc" style="font-weight:700;color:var(--accent);">第40代 日本スーパーウェルター級王座獲得</div>
+    </div>
+    <div class="career-row">
+      <div class="career-year">戦績</div>
+      <div class="career-desc">プロ24戦 13勝（2KO）9敗2分</div>
+    </div>
+    <div class="career-row">
+      <div class="career-year">2025</div>
+      <div class="career-desc">LIFETIME FITNESS GYM 開業</div>
+    </div>
+  </div>
+</div>
+
+<!-- FIGHT PHOTO -->
+<div class="photo-full">
+  <img src="images/fight_scene.jpg" alt="川崎真琴 試合">
+  <div class="photo-full-label">Professional Boxing — Japan Champion</div>
+</div>
+
+<!-- PROGRAMS -->
+<section class="program-section" id="program">
+  <div class="section-eyebrow reveal">PROGRAM</div>
+  <h2 class="section-title reveal">あなたのための<br><em>プログラム</em></h2>
+  <div class="program-cards">
+    <div class="program-card reveal">
+      <div class="program-number">01</div>
+      <div class="program-tag">BODY MAKE</div>
+      <div class="program-title">ボディメイク・プログラム</div>
+      <div class="program-desc">筋肉の仕組みを知り尽くしたトレーナーが、あなたの体型・年齢・生活習慣に合わせた最適なトレーニングを設計。無駄なく、着実に理想の体型へ。</div>
+      <div class="program-tag-row">
+        <span class="program-pill">筋力トレーニング</span>
+        <span class="program-pill">姿勢改善</span>
+        <span class="program-pill">代謝アップ</span>
+      </div>
+    </div>
+    <div class="program-card reveal">
+      <div class="program-number">02</div>
+      <div class="program-tag">FITNESS BOXING</div>
+      <div class="program-title">フィットネスボクシング</div>
+      <div class="program-desc">本物のボクシング技術をベースにした全身有酸素運動。ストレス発散・シェイプアップ・体幹強化を楽しみながら実現します。格闘技未経験の方も大歓迎。</div>
+      <div class="program-tag-row">
+        <span class="program-pill">有酸素運動</span>
+        <span class="program-pill">体幹強化</span>
+        <span class="program-pill">ストレス解消</span>
+      </div>
+    </div>
+    <div class="program-card reveal">
+      <div class="program-number">03</div>
+      <div class="program-tag">LIFETIME HEALTH</div>
+      <div class="program-title">ライフタイムヘルスケア</div>
+      <div class="program-desc">トレーニングだけでなく、食事・睡眠・日常生活の改善もサポート。年齢に負けない健康な身体と習慣を、長期的な視点でつくります。</div>
+      <div class="program-tag-row">
+        <span class="program-pill">栄養アドバイス</span>
+        <span class="program-pill">健康習慣</span>
+        <span class="program-pill">長期サポート</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING PHOTO -->
+<div class="photo-pair">
+  <div class="photo-pair-item" style="height:180px;">
+    <img src="images/training.jpg" alt="トレーニング">
+  </div>
+  <div class="photo-text-block" style="height:180px;">
+    <div class="big">40s</div>
+    <div class="small">こそ、本番。</div>
+  </div>
+</div>
+
+<!-- VOICE (仮想) -->
+<section class="voice-section reveal">
+  <div class="section-eyebrow">MEMBER'S VOICE</div>
+  <h2 class="section-title">通っている方の<br><em>声</em></h2>
+  <div class="voice-cards">
+    <div class="voice-card reveal">
+      <p class="voice-text">40代でジムは敷居が高いと思っていましたが、丁寧に教えてもらえて安心。3ヶ月で体重−4kgになりました。</p>
+      <div class="voice-from">40代女性 / 主婦</div>
+    </div>
+    <div class="voice-card reveal">
+      <p class="voice-text">元チャンピオンに教わるなんて緊張しましたが、全然怖くない（笑）。姿勢が良くなったと周りから言われます。</p>
+      <div class="voice-from">47歳女性 / 会社員</div>
+    </div>
+    <div class="voice-card reveal">
+      <p class="voice-text">「何歳からでも遅くない」という言葉を信じて通い始めて1年。身体が変わると、気持ちも若返る気がします。</p>
+      <div class="voice-from">53歳女性 / パート</div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="plan-section" id="plan">
+  <div class="section-eyebrow reveal">MEMBERSHIP</div>
+  <h2 class="section-title reveal">料金<em>プラン</em></h2>
+  <div class="plan-cards">
+    <div class="plan-card reveal">
+      <div class="plan-label">LIGHT</div>
+      <div class="plan-name">ライトプラン</div>
+      <div class="plan-price">¥6,000<small> ／月</small></div>
+      <div class="plan-divider"></div>
+      <div class="plan-features">
+        <div class="plan-feature">月8回まで入会フリー</div>
+        <div class="plan-feature">グループレッスン参加</div>
+        <div class="plan-feature">設備・器具の利用</div>
+      </div>
+    </div>
+    <div class="plan-card featured reveal">
+      <div class="plan-badge">POPULAR</div>
+      <div class="plan-label">STANDARD</div>
+      <div class="plan-name">スタンダードプラン</div>
+      <div class="plan-price">¥9,800<small> ／月</small></div>
+      <div class="plan-divider"></div>
+      <div class="plan-features">
+        <div class="plan-feature">入会フリー（無制限）</div>
+        <div class="plan-feature">グループレッスン参加</div>
+        <div class="plan-feature">月1回パーソナル指導</div>
+        <div class="plan-feature">食事・栄養アドバイス</div>
+      </div>
+    </div>
+    <div class="plan-card reveal">
+      <div class="plan-label">PERSONAL</div>
+      <div class="plan-name">パーソナルプラン</div>
+      <div class="plan-price">¥25,000<small> ／月</small></div>
+      <div class="plan-divider"></div>
+      <div class="plan-features">
+        <div class="plan-feature">週2回パーソナル指導</div>
+        <div class="plan-feature">入会フリー（無制限）</div>
+        <div class="plan-feature">専用プログラム作成</div>
+        <div class="plan-feature">食事・ライフスタイル改善</div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:11px; color:var(--muted); margin-top:16px; line-height:1.8; text-align:center;">※料金は税込。入会金・施設費別途。詳細はお問い合わせください。</p>
+</section>
+
+<!-- OPEN -->
+<div class="open-section reveal" id="open">
+  <div class="open-eyebrow">GRAND OPENING</div>
+  <h2 class="open-title">あなたの<br><em>新しい習慣</em>が<br>始まる日。</h2>
+  <div class="open-date">2025.6.1</div>
+  <p class="open-desc">
+    オープン記念キャンペーン実施予定。<br>
+    入会金無料・初月特別価格など。<br>
+    今すぐ無料体験を予約してください。
+  </p>
+  <a href="#access" class="open-cta">無料体験を予約する</a>
+</div>
+
+<!-- ACCESS -->
+<section class="access-section" id="access">
+  <div class="section-eyebrow reveal">ACCESS & CONTACT</div>
+  <h2 class="section-title reveal">アクセス・<br><em>お問い合わせ</em></h2>
+  <div class="access-items reveal">
+    <div class="access-item">
+      <div class="access-icon">📍</div>
+      <div>
+        <div class="access-label">ADDRESS</div>
+        <div class="access-value">横浜市緑区・中山駅 徒歩3分</div>
+        <div class="access-note">詳細住所は決定後更新予定</div>
+      </div>
+    </div>
+    <div class="access-item">
+      <div class="access-icon">🕐</div>
+      <div>
+        <div class="access-label">HOURS</div>
+        <div class="access-value" contenteditable="true" style="outline:none;">10:00 〜 22:00（要確認）</div>
+      </div>
+    </div>
+    <div class="access-item">
+      <div class="access-icon">📞</div>
+      <div>
+        <div class="access-label">TEL</div>
+        <div class="access-value" contenteditable="true" style="outline:none;">電話番号を入力してください</div>
+      </div>
+    </div>
+    <div class="access-item">
+      <div class="access-icon">✉️</div>
+      <div>
+        <div class="access-label">EMAIL</div>
+        <div class="access-value" contenteditable="true" style="outline:none;">メールアドレスを入力してください</div>
+      </div>
+    </div>
+    <div class="access-item">
+      <div class="access-icon">📸</div>
+      <div>
+        <div class="access-label">INSTAGRAM</div>
+        <div class="access-value" contenteditable="true" style="outline:none;">@instagram_handle</div>
+      </div>
+    </div>
+  </div>
+  <a href="mailto:" class="free-trial-btn reveal">無料体験を申し込む →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">LIFETIME FITNESS</div>
+  <div class="footer-tagline">Life is long. Keep moving.</div>
+  <div class="footer-links">
+    <a href="#concept">CONCEPT</a>
+    <a href="#trainer">TRAINER</a>
+    <a href="#plan">PLAN</a>
+    <a href="#access">ACCESS</a>
+  </div>
+  <div class="footer-copy">© 2025 Lifetime Fitness Gym. All rights reserved.<br>岡本真（川崎真琴） × 村上政志</div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
