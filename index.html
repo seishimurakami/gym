@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>BATTLE FITNESS GYM — 岡本真 フィットネスジム</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #c8002a;
+  --darkred: #8a001c;
+  --black: #080808;
+  --offwhite: #f2ede6;
+  --gold: #c8a951;
+  --gray: #161616;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--offwhite);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 430px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: rgba(8,8,8,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,0,42,0.2);
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: var(--red);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.nav-menu a {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-menu a:hover { color: var(--offwhite); }
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/hero_belt_shorts.jpg'));
+  background-size: cover;
+  background-position: center top;
+  filter: brightness(0.5);
+  transform: scale(1.05);
+  animation: heroZoom 8s ease-out forwards;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.0); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.4) 50%, rgba(8,8,8,0.1) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 28px 52px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 5px 12px;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.3s;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 62px;
+  line-height: 0.9;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.5s;
+}
+.hero-title .red { color: var(--red); }
+
+.hero-sub {
+  font-size: 13px;
+  font-weight: 300;
+  color: #aaa;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.7s;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.9s;
+}
+
+.btn-primary {
+  flex: 1;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--darkred); }
+
+.btn-secondary {
+  flex: 1;
+  background: transparent;
+  color: var(--offwhite);
+  border: 1px solid #444;
+  padding: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  transition: border-color 0.2s;
+}
+.btn-secondary:hover { border-color: var(--offwhite); }
+
+/* STATS BAR */
+.stats-bar {
+  display: flex;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+.stat {
+  flex: 1;
+  padding: 20px 12px;
+  text-align: center;
+  border-right: 1px solid #1a1a1a;
+}
+.stat:last-child { border-right: none; }
+.stat-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: var(--red);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #666;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* SECTION */
+section {
+  padding: 60px 24px;
+}
+.section-label {
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: var(--red);
+  margin-bottom: 10px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+/* ABOUT — TRAINER */
+.trainer-photo {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin-bottom: 28px;
+  filter: grayscale(20%) contrast(1.05);
+}
+
+.champion-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--gold);
+  padding: 6px 14px;
+  margin-bottom: 16px;
+}
+.champion-tag .dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+.champion-tag span { font-size: 10px; color: var(--gold); letter-spacing: 2px; }
+
+.trainer-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.trainer-name-en {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  color: #555;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.trainer-desc {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #aaa;
+  margin-bottom: 28px;
+}
+
+.career-list {
+  border-top: 1px solid #1e1e1e;
+}
+.career-item {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 13px;
+}
+.career-year {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  color: var(--red);
+  min-width: 48px;
+}
+.career-text { color: #bbb; }
+
+/* FIGHT PHOTO */
+.full-img-wrap {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+}
+.full-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+.full-img-wrap:hover img { transform: scale(1.04); }
+.full-img-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(8,8,8,0.9), transparent);
+  padding: 24px 20px 16px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #888;
+}
+
+/* CONCEPT */
+.concept-section {
+  background: var(--gray);
+  padding: 60px 24px;
+}
+
+.concept-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 8px;
+}
+.concept-card {
+  background: #0f0f0f;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s;
+}
+.concept-card:hover { border-left-color: var(--red); }
+.concept-icon { font-size: 24px; flex-shrink: 0; }
+.concept-card-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+.concept-card-desc { font-size: 13px; color: #777; line-height: 1.7; }
+
+/* TRAINING PHOTOS */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+}
+.photo-grid-item {
+  overflow: hidden;
+  height: 220px;
+}
+.photo-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.photo-grid-item:hover img { transform: scale(1.06); }
+.photo-grid-item.wide {
+  grid-column: 1 / -1;
+  height: 260px;
+}
+
+/* PLAN */
+.plan-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 8px;
+}
+.plan-card {
+  background: var(--gray);
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.plan-card.featured {
+  border: 1px solid var(--red);
+}
+.plan-badge {
+  position: absolute;
+  top: 0; right: 0;
+  background: var(--red);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 5px 12px;
+}
+.plan-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.plan-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  color: var(--red);
+  line-height: 1;
+}
+.plan-price span { font-size: 16px; color: #666; }
+.plan-features {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.plan-feature {
+  font-size: 13px;
+  color: #999;
+  display: flex;
+  gap: 10px;
+}
+.plan-feature::before { content: '—'; color: var(--red); }
+
+/* OPEN INFO */
+.open-section {
+  background: var(--red);
+  padding: 60px 24px;
+  text-align: center;
+}
+.open-section .section-label { color: rgba(255,255,255,0.5); }
+.open-section .section-title { color: #fff; }
+.open-date {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  letter-spacing: -1px;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.open-desc { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 32px; }
+.open-btn {
+  display: inline-block;
+  background: #fff;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 16px 40px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.open-btn:hover { opacity: 0.85; }
+
+/* CONTACT */
+.contact-section {
+  padding: 60px 24px;
+}
+.contact-items {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.contact-item {
+  background: var(--gray);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.contact-icon { font-size: 20px; }
+.contact-label { font-size: 10px; color: #666; letter-spacing: 2px; margin-bottom: 3px; }
+.contact-value { font-size: 14px; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #1a1a1a;
+  padding: 32px 24px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 4px;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+.footer-copy { font-size: 11px; color: #444; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll indicator */
+.scroll-line {
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  padding-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 1.4s;
+}
+.scroll-line .line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--red));
+  animation: lineGrow 1.5s ease-in-out infinite;
+}
+@keyframes lineGrow {
+  0%, 100% { height: 20px; opacity: 0.4; }
+  50% { height: 40px; opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">BATTLE FITNESS</div>
+  <ul class="nav-menu">
+    <li><a href="#about">TRAINER</a></li>
+    <li><a href="#concept">CONCEPT</a></li>
+    <li><a href="#plan">PLAN</a></li>
+    <li><a href="#contact">ACCESS</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">2025.6.1 GRAND OPEN</div>
+    <h1 class="hero-title">
+      BATTLE<br>
+      <span class="red">FITNESS</span><br>
+      GYM
+    </h1>
+    <p class="hero-sub">元プロボクシングチャンピオン・岡本真が<br>あなたを本気で強くする。</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">体験入会を申し込む</a>
+      <a href="#concept" class="btn-secondary">詳しく見る</a>
+    </div>
+  </div>
+  <div class="scroll-line"><div class="line"></div></div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar reveal">
+  <div class="stat">
+    <div class="stat-value">7+</div>
+    <div class="stat-label">プロ歴<br>（年）</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">1位</div>
+    <div class="stat-label">チャンピオン<br>ベルト保持</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">全</div>
+    <div class="stat-label">レベル対応<br>完全指導</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">6/1</div>
+    <div class="stat-label">グランド<br>オープン</div>
+  </div>
+</div>
+
+<!-- ABOUT / TRAINER -->
+<section id="about" style="padding:0;">
+  <img class="trainer-photo" src="images/trainer_belt_robe.jpg" alt="岡本真 チャンピオン">
+  <div style="padding: 0 24px 60px;">
+    <div class="reveal">
+      <div class="champion-tag"><div class="dot"></div><span>第40代 日本スーパーウェルター級王者</span></div>
+      <div class="trainer-name">岡本 真</div>
+      <div class="trainer-name-en">RING NAME : 川崎 真琴 / MAKOTO KAWASAKI</div>
+      <p class="trainer-desc">
+        広島県尾道市出身。リングネーム・川崎真琴として活躍した元プロボクサー。2022年4月、37歳にして悲願の日本スーパーウェルター級王座を獲得（第40代王者）。プロ戦績24戦13勝9敗2分。RK蒲田ボクシングファミリー所属。現役で培った不屈の精神と本物の技術を、このジムのすべてのメンバーに伝える。
+      </p>
+    </div>
+    <div class="career-list reveal">
+      <div class="career-item">
+        <div class="career-year">1984</div>
+        <div class="career-text">広島県尾道市生まれ</div>
+      </div>
+      <div class="career-item">
+        <div class="career-year">2012</div>
+        <div class="career-text">プロボクシングデビュー（4月15日）</div>
+      </div>
+      <div class="career-item">
+        <div class="career-year">2017</div>
+        <div class="career-text">日本ウェルター級暫定王座決定戦に出場</div>
+      </div>
+      <div class="career-item">
+        <div class="career-year">2022</div>
+        <div class="career-text"><strong style="color:var(--offwhite);">第40代 日本スーパーウェルター級王座獲得</strong>（37歳・後楽園ホール）</div>
+      </div>
+      <div class="career-item">
+        <div class="career-year">戦績</div>
+        <div class="career-text">プロ24戦 13勝（2KO）9敗2分</div>
+      </div>
+      <div class="career-item">
+        <div class="career-year">2025</div>
+        <div class="career-text">BATTLE FITNESS GYM 開業</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIGHT PHOTO -->
+<div class="full-img-wrap">
+  <img src="images/fight_scene.jpg" alt="試合">
+  <div class="full-img-caption">FIGHT SCENE — PROFESSIONAL BOXING</div>
+</div>
+
+<!-- CONCEPT -->
+<section id="concept" class="concept-section">
+  <div class="reveal">
+    <div class="section-label">CONCEPT</div>
+    <h2 class="section-title">本物の強さを、<br>ここで。</h2>
+  </div>
+  <div class="concept-cards">
+    <div class="concept-card reveal">
+      <div class="concept-icon">🥊</div>
+      <div>
+        <div class="concept-card-title">チャンピオンから直接学ぶ</div>
+        <div class="concept-card-desc">現役チャンピオン経験を持つ岡本真が直接指導。試合で勝つための本物の技術と体づくりをあなたに。</div>
+      </div>
+    </div>
+    <div class="concept-card reveal">
+      <div class="concept-icon">🔥</div>
+      <div>
+        <div class="concept-card-title">初心者から上級者まで対応</div>
+        <div class="concept-card-desc">「ダイエットしたい」「強くなりたい」「競技を目指したい」どんな目標にも寄り添うプログラムを用意。</div>
+      </div>
+    </div>
+    <div class="concept-card reveal">
+      <div class="concept-icon">🏅</div>
+      <div>
+        <div class="concept-card-title">少人数制・丁寧な指導</div>
+        <div class="concept-card-desc">大人数ではなく少人数制にこだわり、一人ひとりの目標と身体に合わせた質の高い指導を提供。</div>
+      </div>
+    </div>
+    <div class="concept-card reveal">
+      <div class="concept-icon">💡</div>
+      <div>
+        <div class="concept-card-title">科学的アプローチ×格闘技</div>
+        <div class="concept-card-desc">ボクシング技術と最新スポーツ科学を融合。効果的かつ安全に理想の身体へ近づく。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING PHOTO GRID -->
+<div class="photo-grid">
+  <div class="photo-grid-item wide">
+    <img src="images/training.jpg" alt="トレーニング">
+  </div>
+  <div class="photo-grid-item" style="height:180px; background:#111; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;">
+    <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--red);">6.1</div>
+    <div style="font-size:10px; letter-spacing:2px; color:#555;">GRAND OPEN</div>
+  </div>
+  <div class="photo-grid-item" style="height:180px; background:#111; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; padding:20px; text-align:center;">
+    <div style="font-size:22px;">🏆</div>
+    <div style="font-size:12px; color:#666; line-height:1.6;">元プロ<br>チャンピオン<br>直接指導</div>
+  </div>
+</div>
+
+<!-- PLAN -->
+<section id="plan" style="padding: 60px 24px;">
+  <div class="reveal">
+    <div class="section-label">MEMBERSHIP PLAN</div>
+    <h2 class="section-title">プランと料金</h2>
+  </div>
+  <div class="plan-cards">
+    <div class="plan-card reveal">
+      <div class="plan-name">ライトプラン</div>
+      <div class="plan-price">¥6,000<span> ／月</span></div>
+      <div class="plan-features">
+        <div class="plan-feature">フリー入会（月8回まで）</div>
+        <div class="plan-feature">グループトレーニング参加</div>
+        <div class="plan-feature">器具・設備の利用</div>
+      </div>
+    </div>
+    <div class="plan-card featured reveal">
+      <div class="plan-badge">POPULAR</div>
+      <div class="plan-name">スタンダードプラン</div>
+      <div class="plan-price">¥9,800<span> ／月</span></div>
+      <div class="plan-features">
+        <div class="plan-feature">フリー入会（無制限）</div>
+        <div class="plan-feature">グループトレーニング参加</div>
+        <div class="plan-feature">月1回パーソナル指導</div>
+        <div class="plan-feature">食事・栄養アドバイス</div>
+      </div>
+    </div>
+    <div class="plan-card reveal">
+      <div class="plan-name">パーソナルプラン</div>
+      <div class="plan-price">¥25,000<span> ／月</span></div>
+      <div class="plan-features">
+        <div class="plan-feature">週2回パーソナル指導</div>
+        <div class="plan-feature">フリー入会（無制限）</div>
+        <div class="plan-feature">専用トレーニングプログラム</div>
+        <div class="plan-feature">競技・試合サポート</div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:11px; color:#555; margin-top:16px; line-height:1.7;">※料金は税込。入会金・施設費別途。詳細はお問い合わせください。</p>
+</section>
+
+<!-- GRAND OPEN -->
+<div class="open-section reveal" id="open">
+  <div class="section-label">GRAND OPENING</div>
+  <h2 class="section-title" style="color:#fff;">いよいよ開業</h2>
+  <div class="open-date">2025.6.1</div>
+  <p class="open-desc">オープン記念キャンペーン実施予定。<br>入会金無料・初月半額など特典あり。<br>今すぐ体験予約をどうぞ。</p>
+  <a href="#contact" class="open-btn">体験入会を予約する</a>
+</div>
+
+<!-- CONTACT / ACCESS -->
+<section id="contact" class="contact-section">
+  <div class="reveal">
+    <div class="section-label">ACCESS & CONTACT</div>
+    <h2 class="section-title">アクセス・お問い合わせ</h2>
+  </div>
+  <!-- Google Map embed -->
+  <div style="width:100%; height:200px; margin-bottom:2px; overflow:hidden;">
+    <iframe
+      width="100%" height="200"
+      style="border:0; filter:grayscale(80%) contrast(1.1) brightness(0.7);"
+      loading="lazy"
+      allowfullscreen
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFmBWY&q=中山駅,横浜市&zoom=16">
+    </iframe>
+  </div>
+  <div class="contact-items reveal">
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">ADDRESS</div>
+        <div class="contact-value">横浜市緑区・中山駅 徒歩3分<br><span style="font-size:11px;color:#666;">詳細住所は決定後更新予定</span></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">🕐</div>
+      <div>
+        <div class="contact-label">HOURS</div>
+        <div class="contact-value" contenteditable="true" style="outline:none;">10:00 〜 22:00（要確認）</div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-label">TEL</div>
+        <div class="contact-value" contenteditable="true" style="outline:none;">電話番号を入力してください</div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">EMAIL</div>
+        <div class="contact-value" contenteditable="true" style="outline:none;">メールアドレスを入力してください</div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📸</div>
+      <div>
+        <div class="contact-label">INSTAGRAM</div>
+        <div class="contact-value" contenteditable="true" style="outline:none;">@instagram_handle</div>
+      </div>
+    </div>
+  </div>
+  <a href="mailto:info@battlefitness.jp" class="btn-primary reveal" style="margin-top:24px; display:block; text-align:center;">無料体験を申し込む →</a>
+</section>
+
+<footer>
+  <div class="footer-logo">BATTLE FITNESS GYM</div>
+  <div class="footer-copy">© 2025 Battle Fitness Gym. All rights reserved.<br>岡本真 × 村上政志</div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
