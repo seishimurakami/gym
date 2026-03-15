@@ -3,29 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>MK LIFETIME GYM — 川崎真琴のボディメイクジム</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<title>MK LIFETIME GYM — 川崎真琴のボディメイクジム｜横浜中山</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --white: #ffffff;
-  --cream: #faf8f5;
-  --light: #f3efe9;
-  --warm: #ede8e0;
-  --border: #e0d8ce;
-  --text: #2c2520;
-  --muted: #9a8f85;
-  --accent: #b07d62;
-  --accent-light: #d4a98a;
-  --accent-dark: #8a5e45;
-  --green: #7a9e7e;
+  --black:    #0a0a0a;
+  --dark:     #111111;
+  --dark2:    #1a1a1a;
+  --dark3:    #222222;
+  --gold:     #c9a84c;
+  --gold-lt:  #e8c97a;
+  --gold-dk:  #9b7d35;
+  --white:    #f5f3ee;
+  --muted:    #888888;
+  --red:      #c0392b;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--white);
-  color: var(--text);
+  background: var(--black);
+  color: var(--white);
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 300;
   line-height: 1.7;
@@ -34,45 +33,40 @@ body {
   margin: 0 auto;
 }
 
-/* NAV */
+/* ─── NAV ─── */
 nav {
   position: fixed;
   top: 0; left: 50%; transform: translateX(-50%);
   width: 100%; max-width: 430px;
   z-index: 100;
-  padding: 18px 28px;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  padding: 14px 20px;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.25);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 400;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
   letter-spacing: 3px;
-  color: var(--text);
+  color: var(--white);
+  line-height: 1;
 }
-.nav-logo span { color: var(--accent); }
-
-.nav-links {
-  display: flex;
-  gap: 18px;
-  list-style: none;
-}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 14px; list-style: none; }
 .nav-links a {
-  font-size: 9px;
-  letter-spacing: 2px;
+  font-size: 8px;
+  letter-spacing: 2.5px;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.2s;
+  font-weight: 400;
 }
-.nav-links a:hover { color: var(--text); }
+.nav-links a:hover { color: var(--gold); }
 
-/* HERO */
+/* ─── HERO ─── */
 .hero {
   position: relative;
   height: 100vh;
@@ -81,7 +75,6 @@ nav {
   justify-content: flex-end;
   overflow: hidden;
 }
-
 .hero-img {
   position: absolute;
   inset: 0;
@@ -90,250 +83,327 @@ nav {
   background-position: center top;
   transform: scale(1.06);
   animation: zoomOut 10s ease-out forwards;
+  filter: brightness(0.55) saturate(0.8);
 }
-
 .hero-img::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(250,248,245,0.55) 0%, rgba(250,248,245,0.1) 50%, rgba(250,248,245,0.85) 100%);
+  background: linear-gradient(170deg,
+    rgba(10,10,10,0.3) 0%,
+    rgba(10,10,10,0.1) 40%,
+    rgba(10,10,10,0.92) 100%);
 }
-
 @keyframes zoomOut {
   from { transform: scale(1.06); }
-  to   { transform: scale(1.0); }
+  to   { transform: scale(1.00); }
 }
+
+/* diagonal accent line */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 3px;
+  height: 45vh;
+  background: var(--gold);
+  z-index: 2;
+  animation: lineDown 1.2s ease forwards 0.2s;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+@keyframes lineDown { to { transform: scaleY(1); } }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 0 32px 56px;
+  padding: 0 24px 52px;
 }
-
-.hero-eyebrow {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 12px;
-  letter-spacing: 5px;
-  color: var(--accent);
-  margin-bottom: 14px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.3s;
-}
-
-.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 52px;
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
-  color: var(--text);
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 5px 12px;
   margin-bottom: 18px;
   opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.5s;
+  animation: fadeUp 0.6s ease forwards 0.4s;
 }
-.hero-title em {
-  font-style: italic;
-  color: var(--accent);
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 68px;
+  line-height: 0.92;
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.6s;
 }
+.hero-title .accent { color: var(--gold); display: block; }
+.hero-title .small  { font-size: 42px; letter-spacing: 2px; }
 
 .hero-sub {
-  font-size: 13px;
-  color: #5a4e47;
-  line-height: 1.9;
-  margin-bottom: 36px;
+  font-size: 12px;
+  color: rgba(245,243,238,0.65);
+  line-height: 2;
+  margin-bottom: 32px;
+  border-left: 2px solid var(--gold);
+  padding-left: 14px;
   opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.7s;
+  animation: fadeUp 0.7s ease forwards 0.8s;
 }
-
-.hero-buttons {
+.hero-btns {
   display: flex;
-  flex-direction: column;
   gap: 10px;
   opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.9s;
+  animation: fadeUp 0.7s ease forwards 1s;
 }
-
-.btn-main {
+.btn-gold {
+  flex: 1;
   display: block;
   text-align: center;
-  background: var(--accent);
-  color: #fff;
-  padding: 16px;
-  font-size: 12px;
-  font-weight: 400;
+  background: var(--gold);
+  color: var(--black);
+  padding: 15px;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 3px;
   text-decoration: none;
-  transition: background 0.25s;
+  transition: background 0.2s;
 }
-.btn-main:hover { background: var(--accent-dark); }
-
-.btn-sub {
+.btn-gold:hover { background: var(--gold-lt); }
+.btn-outline {
+  flex: 1;
   display: block;
   text-align: center;
   background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
-  padding: 14px;
-  font-size: 12px;
+  color: var(--white);
+  border: 1px solid rgba(245,243,238,0.3);
+  padding: 15px;
+  font-size: 11px;
   letter-spacing: 3px;
   text-decoration: none;
-  transition: border-color 0.25s, background 0.25s;
+  transition: border-color 0.2s, background 0.2s;
 }
-.btn-sub:hover { border-color: var(--accent); background: var(--cream); }
+.btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
 
-/* OPEN RIBBON */
-.open-ribbon {
-  background: var(--accent);
-  color: #fff;
-  text-align: center;
-  padding: 12px;
-  font-size: 11px;
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ─── TICKER ─── */
+.ticker {
+  background: var(--gold);
+  color: var(--black);
+  padding: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-flex;
+  gap: 48px;
+  animation: ticker 18s linear infinite;
+}
+.ticker-item {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
   letter-spacing: 4px;
-  font-family: 'Cormorant Garamond', serif;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-/* STATS */
+/* ─── STATS ─── */
 .stats-row {
   display: flex;
-  border-bottom: 1px solid var(--border);
-  background: var(--cream);
+  background: var(--dark2);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
 }
 .stat-item {
   flex: 1;
-  padding: 24px 10px;
+  padding: 28px 10px;
   text-align: center;
-  border-right: 1px solid var(--border);
+  border-right: 1px solid rgba(255,255,255,0.06);
 }
 .stat-item:last-child { border-right: none; }
 .stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 30px;
-  font-weight: 300;
-  color: var(--accent);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px;
+  color: var(--gold);
   line-height: 1;
+  letter-spacing: 1px;
 }
 .stat-label {
   font-size: 9px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: var(--muted);
-  margin-top: 5px;
+  margin-top: 6px;
   line-height: 1.5;
 }
 
-/* REVEAL */
+/* ─── REVEAL ─── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* SECTION BASE */
-.section {
-  padding: 64px 32px;
-}
+/* ─── SECTION BASE ─── */
 .section-eyebrow {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 11px;
-  letter-spacing: 5px;
-  color: var(--accent);
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 6px;
+  color: var(--gold);
   margin-bottom: 10px;
+  font-weight: 400;
 }
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  font-weight: 300;
-  line-height: 1.2;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: var(--white);
   margin-bottom: 20px;
 }
-.section-title em { font-style: italic; color: var(--accent); }
+.section-title em { font-style: normal; color: var(--gold); }
+
+/* ─── CONCEPT ─── */
+.concept-section {
+  background: var(--dark);
+  padding: 64px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.concept-section::before {
+  content: 'MK';
+  position: absolute;
+  top: -20px; right: -10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 180px;
+  color: rgba(201,168,76,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
 .section-body {
   font-size: 14px;
-  color: #5a4e47;
-  line-height: 1.95;
-}
-
-/* CONCEPT SECTION */
-.concept-section {
-  background: var(--cream);
-  padding: 64px 32px;
+  color: rgba(245,243,238,0.65);
+  line-height: 2;
+  border-left: 2px solid var(--gold);
+  padding-left: 16px;
+  margin-bottom: 36px;
 }
 
 .concept-cards {
-  margin-top: 32px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
+  margin-top: 28px;
 }
 .concept-card {
-  background: var(--white);
-  padding: 28px 24px;
+  background: var(--dark2);
+  padding: 24px 20px;
   display: flex;
-  gap: 20px;
+  gap: 18px;
+  align-items: flex-start;
   border-left: 3px solid transparent;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: border-color 0.3s, background 0.3s;
 }
 .concept-card:hover {
-  border-left-color: var(--accent);
-  box-shadow: 4px 0 20px rgba(176,125,98,0.08);
+  border-left-color: var(--gold);
+  background: var(--dark3);
 }
-.concept-icon-wrap {
-  width: 44px; height: 44px;
-  background: var(--light);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
+.concept-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  color: rgba(201,168,76,0.25);
+  line-height: 1;
+  min-width: 36px;
 }
 .concept-card-title {
-  font-weight: 700;
   font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
   margin-bottom: 6px;
-  color: var(--text);
+  letter-spacing: 0.5px;
 }
 .concept-card-body {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--muted);
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
-/* TARGET */
+/* ─── TARGET ─── */
 .target-section {
-  padding: 64px 32px;
+  background: var(--black);
+  padding: 64px 24px;
 }
-.target-items {
+.target-grid {
   margin-top: 28px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 2px;
 }
 .target-item {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 20px;
-  background: var(--cream);
-  border-radius: 2px;
+  padding: 18px 20px;
+  background: var(--dark2);
+  transition: background 0.2s;
 }
+.target-item:hover { background: var(--dark3); }
 .target-check {
-  width: 32px; height: 32px;
-  background: var(--accent);
-  border-radius: 50%;
+  width: 28px; height: 28px;
+  border: 1.5px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 14px;
+  color: var(--gold);
+  font-size: 13px;
   flex-shrink: 0;
 }
-.target-text { font-size: 14px; color: var(--text); line-height: 1.7; }
+.target-text { font-size: 13px; color: var(--white); line-height: 1.6; }
 
-/* TRAINER PHOTO */
+/* ─── CHAMPION BANNER ─── */
+.champ-banner {
+  background: var(--gold);
+  padding: 28px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.champ-icon {
+  font-size: 48px;
+  flex-shrink: 0;
+}
+.champ-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--black);
+  opacity: 0.7;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.champ-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: var(--black);
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+/* ─── TRAINER ─── */
 .trainer-img-wrap {
   position: relative;
-  height: 500px;
+  height: 480px;
   overflow: hidden;
 }
 .trainer-img-wrap img {
@@ -341,79 +411,76 @@ nav {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  filter: brightness(1.0) saturate(0.85);
+  filter: brightness(0.75) saturate(0.7);
 }
 .trainer-img-wrap::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 55%, rgba(250,248,245,1) 100%);
+  background: linear-gradient(to bottom, transparent 50%, var(--black) 100%);
+}
+.trainer-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px;
+  z-index: 2;
+}
+.trainer-tag-small {
+  font-family: 'Oswald', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.trainer-name-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  color: var(--white);
+  line-height: 0.9;
+  letter-spacing: 2px;
+}
+.trainer-name-sub {
+  font-size: 11px;
+  color: rgba(245,243,238,0.5);
+  letter-spacing: 3px;
+  margin-top: 6px;
 }
 
 .trainer-caption {
-  background: var(--cream);
-  padding: 0 32px 48px;
-}
-
-.trainer-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--accent-light);
-  padding: 5px 14px;
-  margin-bottom: 16px;
-}
-.trainer-tag span {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--accent);
-}
-
-.trainer-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
-  font-weight: 300;
-  letter-spacing: 1px;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.trainer-name-en {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
-  letter-spacing: 4px;
-  color: var(--muted);
-  margin-bottom: 20px;
-  font-style: italic;
+  background: var(--dark);
+  padding: 32px 24px 48px;
 }
 .trainer-body {
-  font-size: 14px;
-  color: #5a4e47;
-  line-height: 1.95;
-  margin-bottom: 24px;
+  font-size: 13px;
+  color: rgba(245,243,238,0.65);
+  line-height: 2;
+  margin-bottom: 28px;
 }
 
 .career-timeline {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 .career-row {
   display: flex;
   gap: 20px;
   padding: 12px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 12px;
+  align-items: baseline;
 }
 .career-year {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  color: var(--accent);
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  color: var(--gold);
   min-width: 44px;
+  font-weight: 600;
 }
-.career-desc { color: #6b5e57; }
+.career-desc { color: rgba(245,243,238,0.6); }
+.career-desc.highlight { color: var(--gold); font-weight: 700; }
 
-/* FIGHT PHOTO FULL WIDTH */
+/* ─── FIGHT PHOTO ─── */
 .photo-full {
-  height: 300px;
+  height: 280px;
   overflow: hidden;
   position: relative;
 }
@@ -422,288 +489,307 @@ nav {
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
-  filter: saturate(0.7) brightness(0.9);
+  filter: saturate(0.5) brightness(0.7);
   transition: transform 0.8s ease;
 }
-.photo-full:hover img { transform: scale(1.03); }
+.photo-full:hover img { transform: scale(1.04); }
 .photo-full-label {
   position: absolute;
-  bottom: 20px; left: 28px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
-  letter-spacing: 4px;
-  color: rgba(255,255,255,0.7);
-  font-style: italic;
+  bottom: 20px; left: 24px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 5px;
+  color: rgba(255,255,255,0.5);
+}
+.photo-full::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(10,10,10,0.5) 0%, transparent 60%);
 }
 
-/* PROGRAM GRID */
+/* ─── PROGRAMS ─── */
 .program-section {
-  background: var(--cream);
-  padding: 64px 32px;
+  background: var(--dark);
+  padding: 64px 24px;
 }
 .program-cards {
   margin-top: 28px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 .program-card {
-  background: var(--white);
-  padding: 28px;
+  background: var(--dark2);
+  padding: 28px 22px;
   position: relative;
   overflow: hidden;
+  transition: background 0.3s;
 }
-.program-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 56px;
-  color: var(--border);
+.program-card::before {
+  content: '';
   position: absolute;
-  top: 12px; right: 20px;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+.program-card:hover::before { transform: scaleY(1); }
+.program-card:hover { background: var(--dark3); }
+
+.program-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  color: rgba(201,168,76,0.12);
   line-height: 1;
-  font-style: italic;
+  position: absolute;
+  top: 16px; right: 16px;
 }
 .program-tag {
+  font-family: 'Oswald', sans-serif;
   font-size: 9px;
   letter-spacing: 4px;
-  color: var(--accent);
+  color: var(--gold);
   margin-bottom: 8px;
-  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
 }
 .program-title {
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: var(--white);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 .program-desc {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--muted);
-  line-height: 1.8;
+  line-height: 1.9;
+  margin-bottom: 16px;
 }
-.program-tag-row {
+.program-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 14px;
 }
 .program-pill {
-  font-size: 11px;
-  padding: 3px 12px;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  border-radius: 20px;
+  font-size: 9px;
+  border: 1px solid rgba(201,168,76,0.35);
+  color: var(--gold);
+  padding: 3px 10px;
+  letter-spacing: 1.5px;
 }
 
-/* TRAINING PHOTO */
-.photo-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-}
-.photo-pair-item {
-  overflow: hidden;
-  height: 200px;
-}
-.photo-pair-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.8);
-  transition: transform 0.6s ease;
-}
-.photo-pair-item:hover img { transform: scale(1.06); }
-.photo-text-block {
-  background: var(--accent);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 20px;
+/* ─── QUOTE BREAK ─── */
+.quote-break {
+  background: var(--dark2);
+  padding: 52px 32px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.photo-text-block .big {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 38px;
-  color: #fff;
-  font-style: italic;
+.quote-break::before {
+  content: '"';
+  position: absolute;
+  top: -20px; left: 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 200px;
+  color: rgba(201,168,76,0.04);
   line-height: 1;
 }
-.photo-text-block .small {
+.quote-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 34px;
+  color: var(--white);
+  letter-spacing: 2px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.quote-text em { color: var(--gold); font-style: normal; }
+.quote-author {
   font-size: 10px;
+  color: var(--muted);
   letter-spacing: 3px;
-  color: rgba(255,255,255,0.7);
 }
 
-/* PLAN */
+/* ─── VOICE ─── */
+.voice-section {
+  background: var(--black);
+  padding: 64px 24px;
+}
+.voice-cards {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.voice-card {
+  background: var(--dark2);
+  padding: 24px 20px;
+  border-top: 1px solid rgba(201,168,76,0.2);
+}
+.voice-text {
+  font-size: 13px;
+  color: rgba(245,243,238,0.8);
+  line-height: 1.95;
+  margin-bottom: 12px;
+}
+.voice-from {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
+/* ─── PLAN ─── */
 .plan-section {
-  padding: 64px 32px;
+  background: var(--dark);
+  padding: 64px 24px;
 }
 .plan-cards {
   margin-top: 28px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 .plan-card {
-  background: var(--cream);
-  padding: 28px;
+  background: var(--dark2);
+  padding: 28px 22px;
   position: relative;
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+.plan-card:hover {
+  border-left-color: var(--gold);
+  background: var(--dark3);
 }
 .plan-card.featured {
-  background: var(--white);
-  border: 1px solid var(--accent-light);
+  background: var(--dark3);
+  border-left: 3px solid var(--gold);
 }
 .plan-badge {
   position: absolute;
-  top: 20px; right: 20px;
-  background: var(--accent);
-  color: #fff;
-  font-size: 9px;
+  top: 18px; right: 18px;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 8px;
+  font-weight: 700;
   letter-spacing: 2px;
-  padding: 4px 10px;
-  font-family: 'Cormorant Garamond', serif;
+  padding: 3px 10px;
 }
 .plan-label {
+  font-family: 'Oswald', sans-serif;
   font-size: 10px;
-  letter-spacing: 4px;
-  color: var(--accent);
-  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 5px;
+  color: var(--gold);
   margin-bottom: 6px;
+  font-weight: 400;
 }
 .plan-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: var(--white);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
 }
 .plan-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 40px;
-  font-weight: 300;
-  color: var(--accent);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 46px;
+  color: var(--gold);
   line-height: 1;
+  letter-spacing: -1px;
 }
-.plan-price small { font-size: 16px; color: var(--muted); }
-.plan-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 16px 0;
-}
-.plan-features {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+.plan-price small { font-size: 18px; color: var(--muted); letter-spacing: 0; }
+.plan-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 16px 0; }
+.plan-features { display: flex; flex-direction: column; gap: 9px; }
 .plan-feature {
-  font-size: 13px;
-  color: var(--muted);
+  font-size: 12px;
+  color: rgba(245,243,238,0.6);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 .plan-feature::before {
   content: '';
-  width: 16px; height: 1px;
-  background: var(--accent-light);
+  width: 14px; height: 1px;
+  background: var(--gold-dk);
   flex-shrink: 0;
 }
-
-/* VOICE / TESTIMONIALS */
-.voice-section {
-  background: var(--light);
-  padding: 64px 32px;
-}
-.voice-cards {
-  margin-top: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.voice-card {
-  background: var(--white);
-  padding: 24px;
-  position: relative;
-}
-.voice-card::before {
-  content: '"';
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 72px;
-  color: var(--border);
-  position: absolute;
-  top: 10px; left: 16px;
-  line-height: 1;
-}
-.voice-text {
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.9;
-  padding-top: 24px;
-  padding-left: 8px;
-}
-.voice-from {
-  margin-top: 14px;
-  font-size: 11px;
-  color: var(--accent);
-  letter-spacing: 2px;
-  font-family: 'Cormorant Garamond', serif;
-}
-
-/* OPEN SECTION */
-.open-section {
-  background: var(--text);
-  padding: 64px 32px;
+.plan-note {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 20px;
+  line-height: 1.8;
   text-align: center;
 }
+
+/* ─── OPEN CTA ─── */
+.open-section {
+  position: relative;
+  background: var(--black);
+  padding: 72px 24px;
+  text-align: center;
+  overflow: hidden;
+}
+.open-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
 .open-eyebrow {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 11px;
-  letter-spacing: 5px;
-  color: var(--accent-light);
-  margin-bottom: 12px;
-}
-.open-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 44px;
-  font-weight: 300;
-  color: var(--white);
-  line-height: 1.1;
-  margin-bottom: 12px;
-}
-.open-title em { font-style: italic; color: var(--accent-light); }
-.open-date {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 56px;
-  font-weight: 300;
-  color: var(--white);
-  letter-spacing: -1px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 6px;
+  color: var(--gold);
   margin-bottom: 16px;
 }
+.open-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.open-title em { font-style: normal; color: var(--gold); }
+.open-date {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  color: var(--white);
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
 .open-desc {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.9;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 2;
   margin-bottom: 36px;
 }
 .open-cta {
   display: inline-block;
-  border: 1px solid var(--accent-light);
-  color: var(--accent-light);
-  padding: 14px 40px;
-  font-size: 12px;
+  background: var(--gold);
+  color: var(--black);
+  padding: 16px 40px;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 4px;
   text-decoration: none;
-  transition: background 0.25s, color 0.25s;
-  font-family: 'Cormorant Garamond', serif;
+  transition: background 0.2s;
 }
-.open-cta:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-}
+.open-cta:hover { background: var(--gold-lt); }
 
-/* ACCESS */
+/* ─── ACCESS ─── */
 .access-section {
-  padding: 64px 32px;
+  background: var(--dark);
+  padding: 64px 24px;
 }
 .access-items {
   margin-top: 28px;
@@ -713,101 +799,94 @@ nav {
 }
 .access-item {
   display: flex;
-  align-items: flex-start;
   gap: 16px;
-  padding: 18px 20px;
-  background: var(--cream);
+  padding: 20px;
+  background: var(--dark2);
+  align-items: flex-start;
 }
 .access-icon {
   font-size: 18px;
-  flex-shrink: 0;
+  min-width: 28px;
   margin-top: 2px;
 }
 .access-label {
+  font-family: 'Oswald', sans-serif;
   font-size: 9px;
-  letter-spacing: 3px;
-  color: var(--accent);
-  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 4px;
+  color: var(--gold);
   margin-bottom: 4px;
+  font-weight: 400;
 }
 .access-value {
-  font-size: 14px;
-  color: var(--text);
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.6;
 }
 .access-note {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--muted);
   margin-top: 2px;
 }
+.access-value a { color: var(--white); text-decoration: none; }
+.access-value a:hover { color: var(--gold); }
 
 .free-trial-btn {
   display: block;
   text-align: center;
-  background: var(--accent);
-  color: #fff;
+  background: var(--gold);
+  color: var(--black);
   padding: 18px;
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 4px;
   text-decoration: none;
-  margin-top: 28px;
-  transition: background 0.25s;
+  margin-top: 24px;
+  transition: background 0.2s;
 }
-.free-trial-btn:hover { background: var(--accent-dark); }
+.free-trial-btn:hover { background: var(--gold-lt); }
 
-/* FOOTER */
+/* ─── FOOTER ─── */
 footer {
-  background: var(--cream);
-  border-top: 1px solid var(--border);
-  padding: 40px 32px;
+  background: var(--black);
+  border-top: 1px solid rgba(201,168,76,0.2);
+  padding: 40px 24px 32px;
   text-align: center;
 }
 .footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 300;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
   letter-spacing: 5px;
-  color: var(--text);
+  color: var(--white);
   margin-bottom: 6px;
 }
+.footer-logo span { color: var(--gold); }
 .footer-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 12px;
-  font-style: italic;
-  color: var(--accent);
-  margin-bottom: 20px;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 4px;
+  margin-bottom: 24px;
 }
 .footer-links {
   display: flex;
   justify-content: center;
   gap: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
 }
 .footer-links a {
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
   color: var(--muted);
   text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 400;
 }
+.footer-links a:hover { color: var(--gold); }
 .footer-copy {
   font-size: 10px;
-  color: var(--muted);
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: none; }
-}
-
-/* Divider ornament */
-.ornament {
-  text-align: center;
-  padding: 8px 0;
-  color: var(--border);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  letter-spacing: 6px;
+  color: rgba(255,255,255,0.2);
+  line-height: 1.8;
 }
 </style>
 </head>
@@ -828,93 +907,95 @@ footer {
 <section class="hero">
   <div class="hero-img"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">MK LIFETIME GYM</div>
+    <div class="hero-badge">🥊 YOKOHAMA NAKAYAMA</div>
     <h1 class="hero-title">
       何歳からでも、<br>
-      <em>美しく</em><br>
-      強くなれる。
+      <span class="accent">美しく</span>
+      <span class="small">強くなれる。</span>
     </h1>
     <p class="hero-sub">
-      元日本チャンピオンが教える、<br>
-      40代からのボディメイク。<br>
-      人生を長く、自分らしく楽しむために。
+      元プロボクシング日本王者が指導する<br>
+      本物のボディメイクジム。<br>
+      横浜・中山駅 徒歩3分。
     </p>
-    <div class="hero-buttons">
-      <a href="#access" class="btn-main">無料体験を予約する</a>
-      <a href="#concept" class="btn-sub">ジムのコンセプトを見る</a>
+    <div class="hero-btns">
+      <a href="mailto:info@mk-lifetime-gym.jp?subject=無料体験申し込み" class="btn-gold">無料体験を申し込む</a>
+      <a href="#plan" class="btn-outline">料金を見る</a>
     </div>
   </div>
 </section>
 
-<!-- OPEN RIBBON -->
-<div class="open-ribbon">2025.6.1 GRAND OPEN — 中山駅 徒歩3分</div>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">MK LIFETIME GYM</span>
+    <span class="ticker-item">YOKOHAMA NAKAYAMA</span>
+    <span class="ticker-item">JAPAN CHAMPION TRAINER</span>
+    <span class="ticker-item">BODY MAKE</span>
+    <span class="ticker-item">FITNESS BOXING</span>
+    <span class="ticker-item">LIFETIME HEALTH</span>
+    <span class="ticker-item">MK LIFETIME GYM</span>
+    <span class="ticker-item">YOKOHAMA NAKAYAMA</span>
+    <span class="ticker-item">JAPAN CHAMPION TRAINER</span>
+    <span class="ticker-item">BODY MAKE</span>
+    <span class="ticker-item">FITNESS BOXING</span>
+    <span class="ticker-item">LIFETIME HEALTH</span>
+  </div>
+</div>
 
 <!-- STATS -->
-<div class="stats-row reveal">
+<div class="stats-row">
   <div class="stat-item">
-    <div class="stat-num">40<small style="font-size:14px;color:var(--muted);">代〜</small></div>
-    <div class="stat-label">主な<br>ターゲット</div>
+    <div class="stat-num">24</div>
+    <div class="stat-label">PROFESSIONAL<br>BOUTS</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">初</div>
-    <div class="stat-label">心者でも<br>安心</div>
+    <div class="stat-num">40th</div>
+    <div class="stat-label">JAPAN<br>CHAMPION</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">日本</div>
-    <div class="stat-label">チャンピオン<br>直接指導</div>
+    <div class="stat-num">3min</div>
+    <div class="stat-label">中山駅から<br>徒歩</div>
   </div>
 </div>
 
 <!-- CONCEPT -->
-<section id="concept" class="section reveal">
-  <div class="section-eyebrow">CONCEPT</div>
-  <h2 class="section-title">
-    <em>Life</em>を、<br>
-    ずっと楽しむ。
-  </h2>
-  <p class="section-body">
+<section class="concept-section" id="concept">
+  <div class="section-eyebrow reveal">CONCEPT</div>
+  <h2 class="section-title reveal"><em>Life</em>を、<br>ずっと楽しむ。</h2>
+  <p class="section-body reveal">
     「フィットネスは若い人のもの」——そんな思い込みを、手放してください。40代こそ、体づくりの本当のスタートライン。人生後半を自信と活力をもって生きるために、ここMK LIFETIME GYMはあります。
   </p>
-</section>
-
-<div class="concept-section" id="concept-cards">
   <div class="concept-cards">
     <div class="concept-card reveal">
-      <div class="concept-icon-wrap">🌿</div>
+      <div class="concept-num">01</div>
       <div>
         <div class="concept-card-title">初心者でも入りやすい</div>
-        <div class="concept-card-body">「ジムが怖い」はここでは関係ありません。丁寧なカウンセリングから始まり、あなたのペースで無理なく続けられる環境をご用意。</div>
+        <div class="concept-card-body">格闘技未経験・運動習慣のない方を大歓迎。「怖そう」「ついていけない」という不安は無用です。あなたのペースで始められます。</div>
       </div>
     </div>
     <div class="concept-card reveal">
-      <div class="concept-icon-wrap">♾️</div>
+      <div class="concept-num">02</div>
       <div>
-        <div class="concept-card-title">ライフタイム・フィットネス</div>
-        <div class="concept-card-body">短期間で結果を出すダイエットではなく、10年・20年続けられる健康的な習慣を一緒につくります。毎日が楽しくなる身体へ。</div>
+        <div class="concept-card-title">元日本王者から学ぶ本物の技術</div>
+        <div class="concept-card-body">第40代日本スーパーウェルター級王者・川崎真琴が直接指導。10年間の現役生活で培った身体の知識を余すことなく伝えます。</div>
       </div>
     </div>
     <div class="concept-card reveal">
-      <div class="concept-icon-wrap">🏆</div>
-      <div>
-        <div class="concept-card-title">チャンピオンの知識で最短ルート</div>
-        <div class="concept-card-body">元日本チャンピオン・川崎真琴が筋肉を知り尽くした効率的なボディメイクを指導。遠回りせず、正しく美しく変わる。</div>
-      </div>
-    </div>
-    <div class="concept-card reveal">
-      <div class="concept-icon-wrap">💬</div>
+      <div class="concept-num">03</div>
       <div>
         <div class="concept-card-title">少人数で、アットホームに</div>
         <div class="concept-card-body">大手チェーンのような混雑はありません。顔と名前を覚えてもらえる、安心できる居場所としてのジムです。</div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- TARGET -->
-<section id="target" class="target-section">
+<section class="target-section" id="target">
   <div class="section-eyebrow reveal">FOR YOU</div>
   <h2 class="section-title reveal">こんな方に<br><em>ぴったり</em>です</h2>
-  <div class="target-items">
+  <div class="target-grid">
     <div class="target-item reveal">
       <div class="target-check">✓</div>
       <div class="target-text">40代・50代で体型の変化が気になってきた</div>
@@ -938,15 +1019,28 @@ footer {
   </div>
 </section>
 
-<!-- TRAINER PHOTO -->
-<div class="trainer-img-wrap">
-  <img src="images/trainer_belt_robe.jpg" alt="岡本真 / 川崎真琴">
+<!-- CHAMPION BANNER -->
+<div class="champ-banner reveal">
+  <div class="champ-icon">🏆</div>
+  <div>
+    <div class="champ-label">YOUR TRAINER IS</div>
+    <div class="champ-title">第40代 日本スーパーウェルター級王者<br>川崎 真琴</div>
+  </div>
 </div>
-<div class="trainer-caption" id="trainer">
+
+<!-- TRAINER PHOTO -->
+<div class="trainer-img-wrap" id="trainer">
+  <img src="images/trainer_belt_robe.jpg" alt="岡本真 / 川崎真琴">
+  <div class="trainer-overlay">
+    <div class="trainer-tag-small">HEAD TRAINER</div>
+    <div class="trainer-name-big">川崎<br>真琴</div>
+    <div class="trainer-name-sub">KAWASAKI MAKOTO</div>
+  </div>
+</div>
+
+<!-- TRAINER CAPTION -->
+<div class="trainer-caption">
   <div class="reveal">
-    <div class="trainer-tag"><span>第40代 日本スーパーウェルター級王者</span></div>
-    <div class="trainer-name">岡本 真</div>
-    <div class="trainer-name-en">Ring name : 川崎 真琴</div>
     <p class="trainer-body">
       広島県尾道市出身、1984年生まれ。リングネーム・川崎真琴として活躍したプロボクサー。2022年4月、37歳で日本スーパーウェルター級王座を獲得（第40代王者）。10年間の現役生活で磨き上げた筋肉と身体の知識を、すべてのメンバーに伝えるためにジムを開業。「本物の知識があれば、何歳からでも身体は変えられる」を信念とする。
     </p>
@@ -966,7 +1060,7 @@ footer {
     </div>
     <div class="career-row">
       <div class="career-year">2022</div>
-      <div class="career-desc" style="font-weight:700;color:var(--accent);">第40代 日本スーパーウェルター級王座獲得</div>
+      <div class="career-desc highlight">第40代 日本スーパーウェルター級王座獲得</div>
     </div>
     <div class="career-row">
       <div class="career-year">戦績</div>
@@ -982,7 +1076,7 @@ footer {
 <!-- FIGHT PHOTO -->
 <div class="photo-full">
   <img src="images/fight_scene.jpg" alt="川崎真琴 試合">
-  <div class="photo-full-label">Professional Boxing — Japan Champion</div>
+  <div class="photo-full-label">PROFESSIONAL BOXING — JAPAN CHAMPION</div>
 </div>
 
 <!-- PROGRAMS -->
@@ -995,7 +1089,7 @@ footer {
       <div class="program-tag">BODY MAKE</div>
       <div class="program-title">ボディメイク・プログラム</div>
       <div class="program-desc">筋肉の仕組みを知り尽くしたトレーナーが、あなたの体型・年齢・生活習慣に合わせた最適なトレーニングを設計。無駄なく、着実に理想の体型へ。</div>
-      <div class="program-tag-row">
+      <div class="program-pills">
         <span class="program-pill">筋力トレーニング</span>
         <span class="program-pill">姿勢改善</span>
         <span class="program-pill">代謝アップ</span>
@@ -1006,7 +1100,7 @@ footer {
       <div class="program-tag">FITNESS BOXING</div>
       <div class="program-title">フィットネスボクシング</div>
       <div class="program-desc">本物のボクシング技術をベースにした全身有酸素運動。ストレス発散・シェイプアップ・体幹強化を楽しみながら実現します。格闘技未経験の方も大歓迎。</div>
-      <div class="program-tag-row">
+      <div class="program-pills">
         <span class="program-pill">有酸素運動</span>
         <span class="program-pill">体幹強化</span>
         <span class="program-pill">ストレス解消</span>
@@ -1017,7 +1111,7 @@ footer {
       <div class="program-tag">LIFETIME HEALTH</div>
       <div class="program-title">ライフタイムヘルスケア</div>
       <div class="program-desc">トレーニングだけでなく、食事・睡眠・日常生活の改善もサポート。年齢に負けない健康な身体と習慣を、長期的な視点でつくります。</div>
-      <div class="program-tag-row">
+      <div class="program-pills">
         <span class="program-pill">栄養アドバイス</span>
         <span class="program-pill">健康習慣</span>
         <span class="program-pill">長期サポート</span>
@@ -1026,18 +1120,17 @@ footer {
   </div>
 </section>
 
-<!-- TRAINING PHOTO -->
-<div class="photo-pair">
-  <div class="photo-pair-item" style="height:180px;">
-    <img src="images/training.jpg" alt="トレーニング">
+<!-- QUOTE BREAK -->
+<div class="quote-break reveal">
+  <div class="quote-text">
+    本物の知識があれば、<br>
+    <em>何歳からでも</em><br>
+    身体は変えられる。
   </div>
-  <div class="photo-text-block" style="height:180px;">
-    <div class="big">40s</div>
-    <div class="small">こそ、本番。</div>
-  </div>
+  <div class="quote-author">— 川崎 真琴 / 第40代 日本チャンピオン</div>
 </div>
 
-<!-- VOICE (仮想) -->
+<!-- VOICE -->
 <section class="voice-section reveal">
   <div class="section-eyebrow">MEMBER'S VOICE</div>
   <h2 class="section-title">通っている方の<br><em>声</em></h2>
@@ -1064,7 +1157,7 @@ footer {
   <div class="plan-cards">
     <div class="plan-card reveal">
       <div class="plan-label">STANDARD / 男性</div>
-      <div class="plan-name">スタンダードプラン（男性）</div>
+      <div class="plan-name">スタンダード（男性）</div>
       <div class="plan-price">¥11,000<small> ／月</small></div>
       <div class="plan-divider"></div>
       <div class="plan-features">
@@ -1076,7 +1169,7 @@ footer {
     <div class="plan-card featured reveal">
       <div class="plan-badge">POPULAR</div>
       <div class="plan-label">STANDARD / 女性</div>
-      <div class="plan-name">スタンダードプラン（女性）</div>
+      <div class="plan-name">スタンダード（女性）</div>
       <div class="plan-price">¥9,900<small> ／月</small></div>
       <div class="plan-divider"></div>
       <div class="plan-features">
@@ -1110,10 +1203,10 @@ footer {
       </div>
     </div>
   </div>
-  <p style="font-size:11px; color:var(--muted); margin-top:16px; line-height:1.8; text-align:center;">※料金は税込。入会金・施設費別途。詳細はお問い合わせください。</p>
+  <p class="plan-note">※料金は税込。入会金・施設費別途。詳細はお問い合わせください。</p>
 </section>
 
-<!-- OPEN -->
+<!-- OPEN CTA -->
 <div class="open-section reveal" id="open">
   <div class="open-eyebrow">GRAND OPENING</div>
   <h2 class="open-title">あなたの<br><em>新しい習慣</em>が<br>始まる日。</h2>
@@ -1123,7 +1216,7 @@ footer {
     入会金無料・初月特別価格など。<br>
     今すぐ無料体験を予約してください。
   </p>
-  <a href="#access" class="open-cta">無料体験を予約する</a>
+  <a href="mailto:info@mk-lifetime-gym.jp?subject=無料体験申し込み" class="open-cta">無料体験を予約する</a>
 </div>
 
 <!-- ACCESS -->
@@ -1143,35 +1236,28 @@ footer {
       <div class="access-icon">🕐</div>
       <div>
         <div class="access-label">HOURS</div>
-        <div class="access-value" contenteditable="true" style="outline:none;">10:00 〜 22:00（要確認）</div>
-      </div>
-    </div>
-    <div class="access-item">
-      <div class="access-icon">📞</div>
-      <div>
-        <div class="access-label">TEL</div>
-        <div class="access-value">お問い合わせはメールにて受付中</div>
+        <div class="access-value">10:00 〜 22:00（要確認）</div>
       </div>
     </div>
     <div class="access-item">
       <div class="access-icon">✉️</div>
       <div>
         <div class="access-label">EMAIL</div>
-        <div class="access-value"><a href="mailto:info@mk-lifetime-gym.jp" style="color:var(--text);text-decoration:none;">info@mk-lifetime-gym.jp</a></div>
+        <div class="access-value"><a href="mailto:info@mk-lifetime-gym.jp">info@mk-lifetime-gym.jp</a></div>
       </div>
     </div>
     <div class="access-item">
       <div class="access-icon">📸</div>
       <div>
         <div class="access-label">INSTAGRAM</div>
-        <div class="access-value"><a href="https://www.instagram.com/mk-lifetime-gym" target="_blank" rel="noopener" style="color:var(--text);text-decoration:none;">@mk-lifetime-gym</a></div>
+        <div class="access-value"><a href="https://www.instagram.com/mk-lifetime-gym" target="_blank" rel="noopener">@mk-lifetime-gym</a></div>
       </div>
     </div>
     <div class="access-item">
       <div class="access-icon">𝕏</div>
       <div>
         <div class="access-label">X / TWITTER</div>
-        <div class="access-value"><a href="https://twitter.com/mk-lifetime-gym" target="_blank" rel="noopener" style="color:var(--text);text-decoration:none;">@mk-lifetime-gym</a></div>
+        <div class="access-value"><a href="https://twitter.com/mk-lifetime-gym" target="_blank" rel="noopener">@mk-lifetime-gym</a></div>
       </div>
     </div>
   </div>
@@ -1180,7 +1266,7 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">MK LIFETIME GYM</div>
+  <div class="footer-logo">MK <span>LIFETIME GYM</span></div>
   <div class="footer-tagline">Life is long. Keep moving.</div>
   <div class="footer-links">
     <a href="#concept">CONCEPT</a>
@@ -1199,7 +1285,7 @@ const obs = new IntersectionObserver(entries => {
       e.target.classList.add('visible');
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 reveals.forEach(r => obs.observe(r));
 </script>
 </body>
